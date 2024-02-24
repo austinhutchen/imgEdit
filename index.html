@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Filter Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    img {
+      width: 400px;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <button onclick="applyFilter('none')">Original</button>
+  <button onclick="applyFilter('grayscale')">Grayscale</button>
+  <button onclick="applyFilter('sepia')">Sepia</button>
+  <button onclick="applyFilter('invert')">Invert</button>
+  <button onclick="applyFilter('blur')">Blur</button>
+  <button onclick="applyFilter('hue-rotate')">Hue Rotate</button>
+  <button onclick="applyFilter('brightness')">Brightness</button>
+  <button onclick="applyFilter('contrast')">Contrast</button>
+  <button onclick="applyFilter('saturate')">Saturate</button>
+  <button onclick="applyFilter('opacity')">Opacity</button>
+
+  <img id="image" src="example.jpg" alt="Example Image">
+</div>
+
+<script>
+  function applyFilter(filter) {
+    const image = document.getElementById('image');
+    image.style.filter = filter === 'none' ? 'none' : `url(#${filter})`;
+  }
+</script>
+
+</body>
+</html>
+
